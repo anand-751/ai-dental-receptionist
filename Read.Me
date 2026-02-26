@@ -1,0 +1,230 @@
+.
+
+🎙️ AI Voice Booking Agent (AI Receptionist)
+
+An autonomous AI-powered voice & text assistant for real-time appointment scheduling, rescheduling, and intelligent customer interaction.
+
+🚀 Overview
+
+The AI Voice Booking Agent is an intelligent AI receptionist designed to automate appointment management and customer inquiries through natural voice and text conversations.
+
+It supports multilingual conversations (Hindi, English, Hinglish), integrates with Google Calendar for real-time scheduling, and uses a FAISS-based RAG pipeline to handle business-related queries with contextual accuracy.
+
+This system simulates a production-ready AI receptionist capable of handling real-world business workflows autonomously.
+
+🧠 Key Features
+🎤 Multilingual Voice Support
+
+Hindi
+
+English
+
+Hinglish (Natural Indian conversational tone)
+
+Automatic intent detection across languages
+
+📅 Google Calendar Automation
+
+Real-time appointment scheduling
+
+Rescheduling & cancellation
+
+Conflict detection
+
+Calendar availability checking
+
+Automated event creation
+
+🛠️ Intent-Based Tool Triggering
+
+Intelligent intent classification
+
+Dynamic tool selection
+
+Function-calling workflow
+
+Context-aware decision routing
+
+📚 FAISS-Based RAG Pipeline
+
+Business knowledge embedding
+
+Semantic search retrieval
+
+Context injection into LLM prompts
+
+Reduced hallucinations
+
+💬 Context-Aware Conversational Memory
+
+Maintains conversation state
+
+Tracks appointment flow
+
+Multi-turn dialogue handling
+
+🏗️ System Architecture
+User (Voice/Text)
+        ↓
+Speech-to-Text (if voice)
+        ↓
+Intent Classification Layer
+        ↓
+Tool Router
+   ↙           ↘
+Calendar Tool   RAG Pipeline (FAISS)
+        ↓              ↓
+Google Calendar     Knowledge Retrieval
+        ↓              ↓
+        LLM Response Generation
+                ↓
+Text-to-Speech (if voice)
+                ↓
+            User Response
+🛠️ Tech Stack
+🔹 Backend
+
+Python
+
+FastAPI
+
+Async processing
+
+🔹 AI & NLP
+
+Groq / OpenAI API
+
+LLM-based intent detection
+
+Prompt engineering
+
+Function calling
+
+FAISS (Vector Store)
+
+Embeddings for RAG
+
+🔹 Integrations
+
+Google Calendar API
+
+OAuth2 Authentication
+
+Ngrok (Webhook exposure for development)
+
+🔹 Voice Layer
+
+Twilio (Voice calls)
+
+Text-to-Speech (TTS)
+
+Speech-to-Text (STT)
+
+🔹 Storage
+
+FAISS vector database
+
+JSON-based session state
+
+🎯 Problem It Solves
+
+Businesses often:
+
+Miss customer calls
+
+Struggle with multilingual support
+
+Manually manage appointments
+
+Provide inconsistent business information
+
+This AI agent solves that by:
+
+Acting as a 24/7 receptionist
+
+Automating appointment workflows
+
+Providing instant business responses
+
+Reducing operational workload
+
+⚙️ Core Capabilities
+Feature	Description
+Schedule Appointment	Books available time slot
+Reschedule	Checks availability & updates event
+Cancel Appointment	Removes event safely
+Business Query Handling	Uses RAG for accurate answers
+Multilingual Support	Natural Indian conversational style
+Tool-Based Execution	Calls calendar APIs only when required
+🧩 How RAG Works in This Project
+
+Business FAQs & data are embedded
+
+Stored in FAISS vector database
+
+User query converted into embedding
+
+Top relevant chunks retrieved
+
+Context injected into LLM prompt
+
+Accurate response generated
+
+This significantly reduces hallucinations and improves response reliability.
+
+🔐 Security Best Practices
+
+Environment variables for API keys
+
+.env excluded via .gitignore
+
+OAuth2 token management
+
+No hardcoded secrets
+
+Secure webhook handling
+
+🚀 Deployment Strategy
+
+Backend containerized using Docker
+
+Public webhook exposure via Ngrok
+
+Scalable microservice-ready design
+
+Deployable on AWS / GCP / Azure
+
+💡 Future Enhancements
+
+Admin dashboard (Web UI)
+
+CRM integration
+
+WhatsApp Business API support
+
+Multi-business support
+
+Analytics dashboard
+
+Fine-tuned conversational models
+
+👨‍💻 Author
+
+Anand Choudhary
+AI-Focused Full Stack Engineer
+
+Specializing in:
+
+LLM Systems
+
+RAG Architectures
+
+AI Automation Agents
+
+Voice AI Systems
+
+⭐ Why This Project Stands Out
+
+This is not just a chatbot.
+
+It is a fully autonomous AI-powered receptionist system capable of executing real-world workflows through intelligent reasoning and tool orchestration.
