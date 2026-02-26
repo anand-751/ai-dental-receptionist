@@ -1,0 +1,24 @@
+Block 1: General Identity & Contact
+Context: Basic business details for Smile Care Dental Clinic. Content: Smile Care Dental Clinic is located at Sco No 40 First Floor, Near Hotel Magestic, Mohali Sas Nagar, Mohali-160055, Punjab. It is a highly-rated dental clinic (5.0 stars) offering comprehensive oral health care.
+
+Block 2: Operational Hours & Appointments
+Context: How to visit or contact the clinic. Content: The clinic is functional from 09:00 AM to 07:45 PM. Appointments can be booked online or via a phone call to the hospital helpline. While known for intensive care, patients should contact the helpline directly for specific 24x7 emergency service availability.
+
+Block 3: Specialized Services (Laser & Surgery)
+Context: Advanced treatments at Smile Care Dental Clinic. Content: The clinic is a specialty center for Laser Dentistry. Specialized services include minimally invasive treatments using advanced laser systems, digital X-rays for precise diagnostics, and Root Canal Treatment (RCT).
+
+Block 4: Cosmetic & Orthodontic Services
+Context: Aesthetic and alignment treatments. Content: Services include cosmetic procedures like smile makeovers, teeth whitening, and orthodontic treatments such as traditional braces and clear aligners.
+
+Block 5: Patient Care Philosophy
+Context: Experience and environment. Content: The clinic uses a patient-centric approach with a well-trained clinical team. It prioritizes patient comfort to reduce dental anxiety, providing a stress-free environment and personalized treatment plans tailored to busy lifestyles.
+
+Block 6: Services along with pricing
+context: Diagnostics & Consultation: Smile Care Dental Clinic offers professional consultations starting at ₹300. Digital X-rays for precise diagnostics are priced at ₹500 per view. A comprehensive oral health check-up, including a personalized treatment plan, is available for ₹1,000.
+Laser & Restorative Treatment : Specialized Laser Root Canal Treatment (RCT) starts at ₹6,000 for front teeth and up to ₹12,000 for complex molar cases. Standard tooth-colored composite fillings range from ₹1,500 to ₹3,000 per surface, depending on the cavity size.
+
+Cosmetic & Smile Makeover Pricing :Costs for aesthetic dental enhancements. Content: Professional in-office laser teeth whitening is available for ₹12,000 per session. Cosmetic smile makeovers using porcelain veneers are priced between ₹12,000 and ₹25,000 per tooth. Composite laminates offer a more budget-friendly option at ₹7,000 per tooth.
+
+Orthodontic & Alignment :Traditional metal braces treatments start at ₹35,000, while aesthetic ceramic braces range from ₹55,000 to ₹75,000. Premium clear aligner (invisible braces) packages, including digital monitoring, start from ₹70,000 and can go up to ₹2,50,000 for complex alignment cases.
+
+Block 10: Surgical & Preventive Care: Standard professional scaling and polishing (cleaning) costs between ₹1,500 and ₹3,500. Routine tooth extractions start at ₹1,000, while surgical wisdom tooth removals are priced from ₹6,000. Permanent dental implants start at ₹30,000 per unit excluding the crown.

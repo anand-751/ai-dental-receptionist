@@ -1,0 +1,31 @@
+"""
+Document chunking module.
+Splits documents into manageable chunks for embedding.
+"""
+
+
+class Chunker:
+    """Handles document chunking"""
+    
+    def __init__(self, chunk_size: int = 1000, overlap: int = 100):
+        """
+        Initialize chunker.
+        
+        Args:
+            chunk_size: Size of each chunk
+            overlap: Overlap between chunks
+        """
+        self.chunk_size = chunk_size
+        self.overlap = overlap
+    
+   plement text chunking logic
+           
+    def chunk_document(self, document_path: str) -> list:
+        """
+        Chunk a document (PDF, markdown, etc).
+        
+        Returns:
+            List of text chunks
+        """
+        # TODO: Implement document chunking logic
+        pass
