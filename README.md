@@ -1,5 +1,4 @@
 # 🎙️ AI Voice Booking Agent (Digital Front Desk)
-### Quest Submission: AI-Native Talent Recruitment
 
 An autonomous AI-powered Digital Receptionist optimized for real-time appointment scheduling, high-quality localized voice interaction, and zero-cost operational scaling.
 
