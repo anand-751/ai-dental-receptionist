@@ -40,10 +40,8 @@ def interpret_slot_with_llm(text: str, slots: list) -> int:
         try:
             response = groq_chat(prompt)
 
-            # 🔍 DEBUG LOG (KEEP THIS FOR NOW)
             print("🧠 LLM RAW RESPONSE:", response)
 
-            # 🔒 ROBUST JSON EXTRACTION
             match = re.search(r"\{.*\}", response, re.DOTALL)
             if not match:
                 return -1

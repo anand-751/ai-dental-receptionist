@@ -1,64 +1,10 @@
-# import uuid
-# from datetime import datetime
-# from ..models.conversation import ConversationSession
-# from ..utils.timers import get_expiry_time
-
-# # In-memory session store
-# SESSIONS = {}
-
-
-# def create_session():
-#     session_id = str(uuid.uuid4())
-
-#     session = ConversationSession(
-#         session_id=session_id,
-#         started_at=datetime.utcnow(),
-#         expires_at=get_expiry_time(),
-#         messages=[]
-#     )
-
-#     SESSIONS[session_id] = session
-#     return session
-
-
-# def get_session(session_id: str):
-#     session = SESSIONS.get(session_id)
-
-#     # auto-expire safety
-#     if session and session.expires_at < datetime.utcnow():
-#         delete_session(session_id)
-#         return None
-
-#     return session
-
-
-# def delete_session(session_id: str):
-#     if session_id in SESSIONS:
-#         del SESSIONS[session_id]
-
-
-# def cleanup_expired_sessions():
-#     now = datetime.utcnow()
-#     expired = [
-#         sid for sid, s in SESSIONS.items()
-#         if s.expires_at < now
-#     ]
-
-#     for sid in expired:
-#         delete_session(sid)
-
-
-
-
 from fastapi import APIRouter, WebSocket, WebSocketDisconnect, HTTPException, Body
 from pydantic import BaseModel, Field
 from typing import List, Dict, Optional
 from datetime import datetime, timedelta
 import uuid
 
-# ============================================
 # MODELS
-# ============================================
 
 class ConversationSession(BaseModel):
     session_id: str
@@ -87,9 +33,7 @@ class UserProfileData(BaseModel):
     notes: Optional[str] = None
 
 
-# ============================================
 # SESSION STORAGE (IN-MEMORY)
-# ============================================
 
 SESSIONS: Dict[str, ConversationSession] = {}
 
@@ -140,16 +84,12 @@ def cleanup_expired_sessions() -> int:
     return len(expired)
 
 
-# ============================================
 # ROUTER
-# ============================================
 
 router = APIRouter(prefix="/conversation", tags=["conversation"])
 
 
-# ============================================
 # START CONVERSATION (REST)
-# ============================================
 
 @router.post("/start")
 def start_conversation(
@@ -182,9 +122,7 @@ def start_conversation(
         raise HTTPException(status_code=500, detail=str(e))
 
 
-# ============================================
 # STREAM CONVERSATION (WEBSOCKET)
-# ============================================
 
 @router.websocket("/stream/{session_id}")
 async def stream_conversation(websocket: WebSocket, session_id: str):
@@ -199,7 +137,6 @@ async def stream_conversation(websocket: WebSocket, session_id: str):
     print(f"🟢 WebSocket connected: {session_id}")
 
     try:
-        # Lazy import to avoid circular dependency
         from core.stream_handler import handle_stream
 
         await handle_stream(websocket, session_id)
@@ -218,9 +155,7 @@ async def stream_conversation(websocket: WebSocket, session_id: str):
         print(f"🟡 WebSocket closed: {session_id}")
 
 
-# ============================================
 # CLEANUP SESSION
-# ============================================
 
 @router.post("/cleanup/{session_id}")
 def cleanup_session(session_id: str):
@@ -240,9 +175,7 @@ def cleanup_session(session_id: str):
     }
 
 
-# ============================================
 # DEBUG ENDPOINTS
-# ============================================
 
 @router.get("/session/{session_id}")
 def get_session_info(session_id: str):

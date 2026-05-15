@@ -8,11 +8,12 @@ from fastapi.responses import FileResponse
 from backend.api.conversation import router as conversation_router
 from backend.utils.session_gc import session_gc_loop
 from backend.core.profile_store import LATEST_PROFILE
+from backend.api.payment import router as payment_router
+from backend.api.payment import router as payment_pages_router
 
 
-# ============================================
-# PROFILE ROUTER
-# ============================================
+
+# ======================= PROFILE ROUTER =======================
 
 profile_router = APIRouter()
 
@@ -24,16 +25,12 @@ async def store_profile(profile: dict):
     return {"status": "stored"}
 
 
-# ============================================
-# LIFESPAN
-# ============================================
+# ======================= LIFESPAN =======================
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     print("🚀 Starting AI Dental Receptionist backend")
-
     gc_task = asyncio.create_task(session_gc_loop())
-
     try:
         yield
     finally:
@@ -41,9 +38,7 @@ async def lifespan(app: FastAPI):
         print("🛑 Backend shutdown")
 
 
-# ============================================
-# APP
-# ============================================
+# ======================= APP =======================
 
 app = FastAPI(
     title="AI Dental Receptionist API",
@@ -51,9 +46,7 @@ app = FastAPI(
     lifespan=lifespan
 )
 
-# ============================================
-# CORS
-# ============================================
+# ======================= CORS =======================
 
 app.add_middleware(
     CORSMiddleware,
@@ -63,31 +56,22 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# ============================================
-# ROUTERS
-# ============================================
 
 app.include_router(conversation_router)
+app.include_router(payment_router)
 app.include_router(profile_router)
 
-# ============================================
-# HEALTH
-# ============================================
+
+app.include_router(payment_pages_router)
+
 
 @app.get("/health")
 def health():
     return {"status": "ok"}
 
 
-# ============================================
-# SERVE FRONTEND (ROOT)
-# ============================================
-
-# Serve the built React app at "/"
 @app.get("/")
 async def serve_root():
     return FileResponse("../dist/index.html")
 
-
-# Serve all static assets (JS, CSS, images)
 app.mount("/", StaticFiles(directory="../dist", html=True), name="frontend")

@@ -9,11 +9,11 @@ RAG_CACHE = {}
 def handle_rag_query(query: str) -> str:
     normalized_query = query.strip().lower()
 
-    # 1️⃣ Cache hit (instant)
+    # 1 Cache hit (instant)
     if normalized_query in RAG_CACHE:
         return RAG_CACHE[normalized_query]
 
-    # 2️⃣ Retrieve relevant chunks from Pinecone
+    # 2 Retrieve relevant chunks from Pinecone
     chunks = retrieve_chunks(query)
 
     if not chunks:
@@ -24,13 +24,13 @@ def handle_rag_query(query: str) -> str:
         RAG_CACHE[normalized_query] = fallback
         return fallback
 
-    # 3️⃣ FAST PATH — factual answers (NO LLM)
+    # 3 FAST PATH — factual answers (NO LLM)
     if len(chunks) == 1 and len(chunks[0]) < 400:
         answer = chunks[0]
         RAG_CACHE[normalized_query] = answer
         return answer
 
-    # 4️⃣ Groq generation (USING WORKING CLIENT)
+    # 4 Groq generation (USING WORKING CLIENT)
     prompt = rag_answer_prompt(chunks, query)
 
     messages = [
@@ -50,6 +50,6 @@ def handle_rag_query(query: str) -> str:
 
     answer = groq_chat(messages)
 
-    # 5️⃣ Cache & return
+    # 5 Cache & return
     RAG_CACHE[normalized_query] = answer
     return answer

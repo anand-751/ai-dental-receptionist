@@ -1,6 +1,6 @@
 from collections import deque
 
-MAX_CONCURRENT_CALLS = 2   # Basic tier limit
+MAX_CONCURRENT_CALLS = 2   
 
 active_calls = set()
 waiting_queue = deque()

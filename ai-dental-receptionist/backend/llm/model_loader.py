@@ -24,7 +24,7 @@ def groq_chat(messages):
     response = client.chat.completions.create(
         model="llama-3.1-8b-instant",
         messages=messages,
-        temperature=0.2,
+        temperature=0,
         max_tokens=512,
     )
 

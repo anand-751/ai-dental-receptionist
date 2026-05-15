@@ -6,7 +6,7 @@ from rag.chunker import Chunker
 
 from pathlib import Path
 
-BASE_DIR = Path(__file__).resolve().parents[2]  # project root
+BASE_DIR = Path(__file__).resolve().parents[2]  
 
 SOURCE_DOC = BASE_DIR / "backend" / "data" / "raw" / "clinic_info.txt"
 INDEX_PATH = BASE_DIR / "backend" / "rag" / "clinic.index"

@@ -6,7 +6,6 @@ from typing import List
 from sentence_transformers import SentenceTransformer
 from pathlib import Path
 
-# 🔒 HARD DISABLE CUDA
 os.environ["CUDA_VISIBLE_DEVICES"] = ""
 
 BASE_DIR = Path(__file__).resolve().parents[2]
@@ -14,7 +13,6 @@ BASE_DIR = Path(__file__).resolve().parents[2]
 INDEX_PATH = BASE_DIR / "backend" / "rag" / "clinic.index"
 META_PATH = BASE_DIR / "backend" / "rag" / "clinic_meta.json"
 
-# 🔒 FORCE CPU
 embedding_model = SentenceTransformer(
     "all-MiniLM-L6-v2",
     device="cpu"

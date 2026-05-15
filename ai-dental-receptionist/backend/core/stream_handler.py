@@ -1,15 +1,13 @@
-# stream.handler.py
 from fastapi import WebSocket, WebSocketDisconnect
 import json
 import traceback
 
 from .intent_classifier import classify_intent, intent_changed
 from .response_router import route_intent
-from .conversation_manager import get_session, delete_session, create_session_if_missing  # optional helper
+from .conversation_manager import get_session, delete_session, create_session_if_missing  
 
 
 async def handle_stream(websocket: WebSocket, session_id: str):
-    # 🔴 THIS LINE IS NON-NEGOTIABLE
     await websocket.accept()
     print(f"🟢 WebSocket accepted for session {session_id}")
 

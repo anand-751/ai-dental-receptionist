@@ -14,7 +14,6 @@ async def session_gc_loop():
         try:
             iteration += 1
 
-            # ✅ FIXED IMPORT (absolute, correct root)
             from backend.core.conversation_manager import cleanup_expired_sessions
 
             cleaned_count = cleanup_expired_sessions()
